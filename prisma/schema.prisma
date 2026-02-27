@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model CourseRecord {
+  id              Int      @id @default(autoincrement())
+  studentName     String
+  courseName      String
+  classDate       String   // YYYY-MM-DD
+  startTime       String   // HH:mm
+  endTime         String   // HH:mm
+  durationMinutes Int
+  createdAt       DateTime @default(now())
+}
